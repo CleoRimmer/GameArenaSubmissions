@@ -21,20 +21,37 @@ public class Pacman
         * 3 - down
         */
 
+        private Rectangle[][] sprite = new Rectangle[12][12];
+        //Temp variable, this will be replaced with an array of rectangles so that pixel art can be drawn
 
        public Pacman (int startX, int startY, int startSpeed)
         //Construcutor method
         {
+        
          lives = 3;
          power = false;
          direction = 0;
          x = startX;
          y = startY;
          speed = startSpeed;
+         for (int i = 0; i < 12; i++)
+         {  
+            for (int j = 0; j < 12; j++)
+            {
+                sprite[i][j] = new Rectangle(x, y, 20, 20, "Yellow");
+            }
+            
+         }
+         
         }
 
 
         //Accessor
+
+        public Rectangle[][] getSprite ()
+        {
+            return sprite;
+        }
 
         public int getDirection ()
         {
@@ -109,5 +126,20 @@ public class Pacman
             {
                 y += speed;
             }
+       }
+
+       public void updateSprites()
+       {    
+
+            for (int i = 0; i < 12; i++)
+            {  
+                for (int j = 0; j < 12; j++)
+                {
+                    sprite[i][j].setXPosition(x+(20*i));
+                    sprite[i][j].setYPosition(y+(20*j));
+                }
+           
+            }
+            
        }
 }

@@ -4,8 +4,17 @@ public class Driver
     {
         GameArena arena = new GameArena(1920, 1080);
         Pacman player = new Pacman(250, 150, 2);
-        Rectangle playerSprite = new Rectangle(player.getX(), player.getY(), 20, 20, "Yellow");
-        arena.addRectangle(playerSprite);
+        //Rectangle playerSprite = new Rectangle(player.getX(), player.getY(), 20, 20, "Yellow");
+        
+
+        for (int i = 0; i < 12; i++)
+            {  
+                for (int j = 0; j < 12; j++)
+                {
+                    arena.addRectangle(player.getSprite()[i][j]);
+                }
+           
+            }
 
         while(true)
         {
@@ -30,11 +39,17 @@ public class Driver
             }
 
             player.movement();
+            player.updateSprites();
 
-            playerSprite.setXPosition(player.getX());
-            playerSprite.setYPosition(player.getY());
-            
-            arena.addRectangle(playerSprite);
+
+            for (int i = 0; i < 12; i++)
+            {  
+                for (int j = 0; j < 12; j++)
+                {
+                    arena.addRectangle(player.getSprite()[i][j]);
+                }
+           
+            }
 
             arena.pause();
             arena.clearGameArena();
