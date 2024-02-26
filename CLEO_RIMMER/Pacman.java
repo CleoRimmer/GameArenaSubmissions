@@ -65,6 +65,12 @@ public class Pacman
 
        //Mutators
 
+       public void togglePower ()
+       {
+            power = ! power;
+       }
+
+
        public void setDirection(int newDirection)
        {
         direction = newDirection;
