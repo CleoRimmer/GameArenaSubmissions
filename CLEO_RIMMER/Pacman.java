@@ -5,6 +5,9 @@ public class Pacman
 
        private boolean power;
        //Records whether or not pacman is powered by a power pellet
+
+       private int speed;
+       //Holds the speed of pacman
        
        private int x;
        private int y;
@@ -19,7 +22,7 @@ public class Pacman
         */
 
 
-       public Pacman (int startX, int startY)
+       public Pacman (int startX, int startY, int startSpeed)
         //Construcutor method
         {
          lives = 3;
@@ -27,6 +30,7 @@ public class Pacman
          direction = 0;
          x = startX;
          y = startY;
+         speed = startSpeed;
         }
 
 
@@ -82,22 +86,22 @@ public class Pacman
        {
         if (direction == 0)
             {
-                x -= 1;
+                x -= speed;
             }
 
             if (direction == 1)
             {
-                x += 1;
+                x += speed;
             }
             
             if (direction == 2)
             {
-                y -= 1;
+                y -= speed;
             }
 
             if (direction == 3)
             {
-                y += 1;
+                y += speed;
             }
        }
 }
